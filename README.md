@@ -20,7 +20,7 @@ CSS-Tricks: [Nailing That Cool Dissolve Transition](https://css-tricks.com/naili
 
 ## Demo
 
-Check out the [live demo](https://wix-incubator.github.io/kampos/demo/).
+Check out the [live demo](https://ameerabuf.github.io/kampos-fork/demo/).
 
 ## Documentation
 
