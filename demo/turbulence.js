@@ -37,12 +37,14 @@ const instance2 = new Kampos({ target: target2, effects: [disp] });
 // you can increase/decrease the time factor for a faster/slower animation
 instance.play((time) => (turbulence.time = time * 2));
 
-prepareVideos([media1]).then(() => {
-    const width = media1.videoWidth;
-    const height = media1.videoHeight;
+prepareMedia([media1], 'video', [
+    /* insert override URL here */
+]).then((videos) => {
+    const width = videos[0].videoWidth || videos[0].naturalWidth;
+    const height = videos[0].videoHeight || videos[0].naturalHeight;
 
     // set media source
-    instance2.setSource({ media: media1, width, height });
+    instance2.setSource({ media: videos[0], width, height });
 
     disp.map = target;
     disp.scale = { x: 0.15, y: -0.15 };

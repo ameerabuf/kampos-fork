@@ -8,12 +8,14 @@ const target = document.querySelector('#target');
 const alphaMask = effects.alphaMask();
 
 // make sure videos are loaded and playing
-prepareVideos([media1, media2]).then(() => {
-    const width = media1.videoWidth;
-    const height = media1.videoHeight;
+prepareMedia([media1, media2], 'video', [
+    /* insert override URLs here */
+]).then((videos) => {
+    const width = videos[0].videoWidth || videos[0].naturalWidth;
+    const height = videos[0].videoHeight || videos[0].naturalHeight;
 
     alphaMask.isLuminance = true;
-    alphaMask.mask = media2;
+    alphaMask.mask = videos[1];
     // it's a video so update on every frame
     alphaMask.textures[0].update = true;
 
@@ -21,7 +23,7 @@ prepareVideos([media1, media2]).then(() => {
     const instance = new Kampos({ target, effects: [alphaMask] });
 
     // set media source
-    instance.setSource({ media: media1, width, height });
+    instance.setSource({ media: videos[0], width, height });
     // start kampos
     instance.play();
 });

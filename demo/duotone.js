@@ -10,14 +10,18 @@ const hueSaturation = effects.hueSaturation();
 // init kampos with effect
 const instance = new Kampos({ target, effects: [duotone, hueSaturation] });
 
-// prepareVideos([media])
-loadImage(
-    'https://static.wixstatic.com/media/cec2b6_36e46176b7e54b678e4c6d39d36452e5~mv2.jpg',
-).then((img) => {
-    // const width = media.videoWidth;
-    // const height = media.videoHeight;
+prepareMedia(
+    // change these URL to change image
+    [
+        'https://static.wixstatic.com/media/cec2b6_36e46176b7e54b678e4c6d39d36452e5~mv2.jpg',
+    ],
+    'img'
+).then((images) => {
+    const img = images[0];
     const height = window.document.documentElement.clientHeight;
-    const width = (height * img.naturalWidth) / img.naturalHeight;
+    const width =
+        (height * (img.videoWidth || img.naturalWidth)) /
+        (img.videoHeight || img.naturalHeight);
 
     // set media source
     instance.setSource({ media: img, width, height });

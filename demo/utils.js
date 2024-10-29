@@ -47,7 +47,7 @@ function prepareVideos(videos) {
                     vid.removeEventListener('canplay', canPlay, true);
                 });
 
-                resolve();
+                resolve(videos);
             }
         };
 
@@ -60,3 +60,18 @@ function prepareVideos(videos) {
 }
 
 window.prepareVideos = prepareVideos;
+
+function prepareMedia(mediaArray, type = 'img', extraVideoSrcs = null) {
+    if (type === 'video') {
+        if (extraVideoSrcs.length <= mediaArray.length) {
+            for (let i = 0; i < extraVideoSrcs.length; i++) {
+                mediaArray[i].src = extraVideoSrcs[i];
+            }
+        }
+        return prepareVideos(mediaArray);
+    } else if (type === 'img') {
+        return Promise.all(mediaArray.map((imgSrc) => loadImage(imgSrc)));
+    }
+}
+
+window.prepareMedia = prepareMedia;

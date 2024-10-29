@@ -65,12 +65,16 @@ dissolve.map = mapTarget;
 const instance = new Kampos({ target, effects: [dissolve] });
 
 /* make sure videos are loaded and playing*/
-Promise.all([
-    loadImage(`https://picsum.photos/${MAP_WIDTH}/${MAP_HEIGHT}?random=1`),
-    loadImage(`https://picsum.photos/${MAP_WIDTH}/${MAP_HEIGHT}?random=2`),
-    loadImage(`https://picsum.photos/${MAP_WIDTH}/${MAP_HEIGHT}?random=3`),
-    loadImage(`https://picsum.photos/${MAP_WIDTH}/${MAP_HEIGHT}?random=4`),
-]).then((images) => {
+prepareMedia(
+    [
+        // change these URLs to change images
+        `https://picsum.photos/${MAP_WIDTH}/${MAP_HEIGHT}?random=1`,
+        `https://picsum.photos/${MAP_WIDTH}/${MAP_HEIGHT}?random=2`,
+        `https://picsum.photos/${MAP_WIDTH}/${MAP_HEIGHT}?random=3`,
+        `https://picsum.photos/${MAP_WIDTH}/${MAP_HEIGHT}?random=4`,
+    ],
+    'img'
+).then((images) => {
     const width = MAP_WIDTH;
     const height = MAP_HEIGHT;
     let index = 0;

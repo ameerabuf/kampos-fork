@@ -67,15 +67,17 @@ dissolve.map = mapTarget;
 const instance = new Kampos({ target, effects: [dissolve] });
 
 /* make sure videos are loaded and playing */
-prepareVideos([media1, media2]).then(() => {
-    const width = media1.videoWidth;
-    const height = media1.videoHeight;
+prepareMedia([media1, media2], 'video', [
+    /* insert override URLs here */
+]).then((videos) => {
+    const width = videos[0].videoWidth || videos[0].naturalWidth;
+    const height = videos[0].videoHeight || videos[0].naturalHeight;
 
     /* set media source */
-    instance.setSource({ media: media1, width, height });
+    instance.setSource({ media: videos[0], width, height });
 
     /* set media to transition into*/
-    dissolve.to = media2;
+    dissolve.to = videos[1];
     if (DYNAMIC) {
         dissolve.textures[1].update = true;
     }

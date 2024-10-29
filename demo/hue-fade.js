@@ -12,15 +12,17 @@ const fade = transitions.fade();
 const instance = new Kampos({ target, effects: [fade] });
 
 // make sure videos are loaded and playing
-prepareVideos([media1, media2]).then(() => {
-    const width = media1.videoWidth;
-    const height = media1.videoHeight;
+prepareMedia([media1, media2], 'video', [
+    /* insert override URLs here */
+]).then((videos) => {
+    const width = videos[0].videoWidth || videos[0].naturalWidth;
+    const height = videos[0].videoHeight || videos[0].naturalHeight;
 
     // set media source
-    instance.setSource({ media: media1, width, height });
+    instance.setSource({ media: videos[0], width, height });
 
     // set media to transition into
-    fade.to = media2;
+    fade.to = videos[1];
 
     // start kampos
     instance.play();

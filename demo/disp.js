@@ -26,24 +26,27 @@ class Transition {
         const dispReady = loadImage(disp);
 
         // make sure videos are loaded and playing
-        prepareVideos([this.vid1, this.vid2]).then(() => {
+        prepareMedia([this.vid1, this.vid2], 'video', [
+            /* insert override URLs here */
+        ]).then((videos) => {
             const height = window.document.documentElement.clientHeight;
             const width =
-                (height * this.vid1.videoWidth) / this.vid1.videoHeight;
+                (height * (videos[0].videoWidth || videos[0].naturalWidth)) /
+                (videos[0].videoHeight || videos[0].naturalHeight);
 
             dispReady.then((img) => {
                 /*
                  * set transition values
                  */
                 this.transition.map = img;
-                this.transition.to = this.vid2;
+                this.transition.to = videos[1];
 
                 // try playing with the x/y and +/- for different transition effects
                 this.transition.sourceScale = { x: this.dispScale };
                 this.transition.toScale = { x: -this.dispScale };
 
                 // set media source
-                this.kampos.setSource({ media: this.vid1, width, height });
+                this.kampos.setSource({ media: videos[0], width, height });
 
                 // start kampos
                 this.kampos.play();

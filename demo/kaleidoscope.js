@@ -8,12 +8,14 @@ const kaleidoscope = effects.kaleidoscope();
 const instance = new Kampos({ effects: [kaleidoscope], target });
 
 /* make sure video is loaded and playing */
-prepareVideos([media]).then(() => {
-    const width = media.videoWidth;
-    const height = media.videoHeight;
+prepareMedia([media], 'video', [
+    /* insert override URL here */
+]).then((videos) => {
+    const width = videos[0].videoWidth || videos[0].naturalWidth;
+    const height = videos[0].videoHeight || videos[0].naturalHeight;
 
     /* set media source */
-    instance.setSource({ media, width, height });
+    instance.setSource({ media: videos[0], width, height });
 
     instance.play();
 
