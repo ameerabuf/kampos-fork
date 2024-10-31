@@ -12,9 +12,7 @@ const instance = new Kampos({ target, effects: [duotone, hueSaturation] });
 
 prepareMedia(
     // change these URL to change image
-    [
-        'https://static.wixstatic.com/media/cec2b6_36e46176b7e54b678e4c6d39d36452e5~mv2.jpg',
-    ],
+    [`../Engineering Conference Assets/Duotone effect with hue-rotation.png`],
     'img'
 ).then((images) => {
     const img = images[0];

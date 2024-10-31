@@ -67,11 +67,16 @@ const instance = new Kampos({ target, effects: [dissolve] });
 /* make sure videos are loaded and playing*/
 prepareMedia(
     [
-        // change these URLs to change images
-        `https://picsum.photos/${MAP_WIDTH}/${MAP_HEIGHT}?random=1`,
-        `https://picsum.photos/${MAP_WIDTH}/${MAP_HEIGHT}?random=2`,
-        `https://picsum.photos/${MAP_WIDTH}/${MAP_HEIGHT}?random=3`,
-        `https://picsum.photos/${MAP_WIDTH}/${MAP_HEIGHT}?random=4`,
+        `../Engineering Conference Assets/Dissolve Gallery1.png`,
+        `../Engineering Conference Assets/Dissolve Gallery2.png`,
+        `../Engineering Conference Assets/Dissolve Gallery3.png`,
+        `../Engineering Conference Assets/Dissolve Gallery4.png`,
+        `../Engineering Conference Assets/Dissolve Gallery5.png`,
+        `../Engineering Conference Assets/Dissolve Gallery6.png`,
+        `../Engineering Conference Assets/Dissolve Gallery7.png`,
+        `../Engineering Conference Assets/Dissolve Gallery8.png`,
+        `../Engineering Conference Assets/Dissolve Gallery9.png`,
+        `../Engineering Conference Assets/Dissolve Gallery10.png`,
     ],
     'img'
 ).then((images) => {

@@ -38,7 +38,7 @@ const instance2 = new Kampos({ target: target2, effects: [disp] });
 instance.play((time) => (turbulence.time = time * 2));
 
 prepareMedia([media1], 'video', [
-    /* insert override URL here */
+    `../Engineering Conference Assets/Fractal noise displacement.mov`,
 ]).then((videos) => {
     const width = videos[0].videoWidth || videos[0].naturalWidth;
     const height = videos[0].videoHeight || videos[0].naturalHeight;

@@ -26,9 +26,13 @@ class Transition {
         const dispReady = loadImage(disp);
 
         // make sure videos are loaded and playing
-        prepareMedia([this.vid1, this.vid2], 'video', [
-            /* insert override URLs here */
-        ]).then((videos) => {
+        prepareMedia(
+            [
+                `../Engineering Conference Assets/Displacement transition.png`,
+                `../Engineering Conference Assets/Displacement transition1.png`,
+            ],
+            'img'
+        ).then((videos) => {
             const height = window.document.documentElement.clientHeight;
             const width =
                 (height * (videos[0].videoWidth || videos[0].naturalWidth)) /

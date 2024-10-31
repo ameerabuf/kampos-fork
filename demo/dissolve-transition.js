@@ -68,7 +68,8 @@ const instance = new Kampos({ target, effects: [dissolve] });
 
 /* make sure videos are loaded and playing */
 prepareMedia([media1, media2], 'video', [
-    /* insert override URLs here */
+    `../Engineering Conference Assets/Dissolve transition.mov`,
+    `../Engineering Conference Assets/Dissolve transition2.mov`,
 ]).then((videos) => {
     const width = videos[0].videoWidth || videos[0].naturalWidth;
     const height = videos[0].videoHeight || videos[0].naturalHeight;
