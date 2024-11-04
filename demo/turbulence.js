@@ -6,6 +6,7 @@ target.height = 480;
 
 const target2 = document.querySelector('#target');
 const media1 = document.querySelector('#video5');
+target2.style = 'height: 120%';
 
 // uncomment here if you want to see just the turbulence
 //target2.parentNode.replaceChild(target, target2);

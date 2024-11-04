@@ -12,8 +12,8 @@ prepareMedia([media1, media2], 'video', [
     `../Engineering Conference Assets/Luminance Mask1.mov`,
     `../Engineering Conference Assets/Luminance Mask2.mov`,
 ]).then((videos) => {
-    const width = videos[0].videoWidth || videos[0].naturalWidth;
-    const height = videos[0].videoHeight || videos[0].naturalHeight;
+    const width = videos[0].videoWidth / 2 || videos[0].naturalWidth;
+    const height = videos[0].videoHeight / 2 || videos[0].naturalHeight;
 
     alphaMask.isLuminance = true;
     alphaMask.mask = videos[1];

@@ -15,12 +15,12 @@ const TYPE = 'LIQUID';
 const ANIMATIONS = {
     SMOKE: {
         octaves: 8,
-        edge: 0.4,
-        cellFactor: 4,
+        edge: 0.9,
+        cellFactor: 1,
     },
     LIQUID: {
-        octaves: 1,
-        edge: 0.03,
+        octaves: 10,
+        edge: 0.4,
         cellFactor: 2,
     },
 };
