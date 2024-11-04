@@ -11,7 +11,7 @@ const render = {
             u_time: 'float',
         },
         constant: noise.cellular,
-        main: 'color = vec3(noise(vec3(gl_FragCoord.xy/u_resolution.xy, u_time * 0.0005)));',
+        main: 'float noiseAmount = vec3(noise(vec3(gl_FragCoord.xy/u_resolution.xy, u_time * 0.0005))).r; color = noiseAmount * vec3(1.0, 0.643, 0.976) + (1.0 - noiseAmount) * vec3(1.0, 0.886, 0.165);',
     },
     uniforms: [
         {
