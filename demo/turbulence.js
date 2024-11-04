@@ -41,8 +41,8 @@ instance.play((time) => (turbulence.time = time * 2));
 prepareMedia([media1], 'video', [
     `../Engineering Conference Assets/Fractal noise displacement.mov`,
 ]).then((videos) => {
-    const width = videos[0].videoWidth || videos[0].naturalWidth;
-    const height = videos[0].videoHeight || videos[0].naturalHeight;
+    const width = 0.8 * videos[0].videoWidth || videos[0].naturalWidth;
+    const height = 0.8 * videos[0].videoHeight || videos[0].naturalHeight;
 
     // set media source
     instance2.setSource({ media: videos[0], width, height });
